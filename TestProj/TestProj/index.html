@@ -27,7 +27,40 @@
             <input type="text" id="input" size="20" value="" /> <small>Something</small><br />
         </fieldset>
         <script>
-            // Add your code here
+            // Add your code he
+             var longestPalindrome = function(str) 
+{
+if (str.length < 1 || str === null) return ''; 
+
+let longest = '';
+for (let i = 0; i < str.length; i++)
+{
+let oddPalindrome = expandFromCenter(str, i, i);
+let evenPalindrome = expandFromCenter(str, i-1, i);
+
+if(oddPalindrome.length > longest.length)
+{
+longest = oddPalindrome;
+}
+if (evenPalindrome.length > longest.length)
+{
+longest = evenPalindrome;
+}
+}
+return longest;
+}
+
+function expandFromCenter(str, left, right)
+{
+let i = 0;
+while(str[left - i]&& str[left - i] ===str[right +i])
+{
+i++;
+}
+i--;
+
+return str.slice(left -i,right +i +1);
+}
         </script>
     </form>
     <h2>Task 2</h2>
@@ -47,6 +80,19 @@
         </fieldset>
         <script>
             // Add your code here
+               const isAnagram = (str1, str2) => {
+  const normalize = str =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]/gi, '')
+      .split('')
+      .sort()
+      .join('');
+  return normalize(str1) === normalize(str2);
+};
+document.write(isAnagram('snapseed', 'seedsnap')); 
+
+document.write(isAnagram('bobbin', 'binbob'));
         </script>
     </form>
     <h2>Task 3</h2>
@@ -66,6 +112,16 @@
         </fieldset>
         <script>
             // Add your code here
+              function countVowel(str) { 
+    const count = str.match(/[aeiou]/gi).length;
+    return count;
+}
+
+const string = prompt('Enter a word: ');
+
+const result = countVowel(string);
+
+document.write(result);
         </script>
     </form>
     <h2>Task 4</h2>
@@ -88,6 +144,24 @@
         </fieldset>
         <script>
             // Add your code here
+             function fibonacci(num) {
+        if(num < 2) {
+            return num;
+    }
+        else {
+             return fibonacci(num-1) + fibonacci(num - 2);
+    }
+}
+const nTerms = prompt('Enter the number of terms: ');
+
+if(nTerms <=0) {
+    document.write('Enter a positive integer.');
+}
+else {
+    for(let i = 0; i < nTerms; i++) {
+        document.write(fibonacci(i));
+    }
+}
         </script>
     </form>
     <h1>Laboratory work 8</h1>
@@ -105,6 +179,39 @@
         </fieldset>
         <script>
             // Add your code here
+            class GFG {
+     
+    
+    static int sumOfDigitsFrom1ToN(int n)
+    {
+        int result = 0; // initialize result
+      
+       
+        for (int x = 1; x <= n; x++)
+            result += sumOfDigits(x);
+      
+        return result;
+    }
+      
+    static int sumOfDigits(int x)
+    {
+        int sum = 0;
+        while (x != 0)
+        {
+            sum += x % 10;
+            x   = x / 10;
+        }
+        return sum;
+    }
+     
+    public static void main(String args[])
+    {
+        int n = 328;
+        System.out.println("Sum of digits in numbers"
+                          +" from 1 to " + n + " is "
+                          + sumOfDigitsFrom1ToN(n));
+    }
+}
         </script>
     </form>
     <h2>Task 2</h2>
